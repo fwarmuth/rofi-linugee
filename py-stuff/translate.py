@@ -135,6 +135,9 @@ if __name__ == "__main__":
         # Run the command then remove the ending newline, and decode the bytestring as a normal utf-8 string
         CMD_run_rofi = "echo ' ' | rofi -dmenu -p 'Translate'"
         input_term = sp.run(CMD_run_rofi, shell=True, stdout=sp.PIPE).stdout[:-1].decode('utf-8')
+        if input_term == " ":
+            # no input found
+            exit(0)
     while input_term != "":
         # update query history
         query_history += input_term + "->"
