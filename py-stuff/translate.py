@@ -129,11 +129,12 @@ if __name__ == "__main__":
 
     query_history = ""
     saved_queries = {}
-
-    # Run the command then remove the ending newline, and decode the bytestring as a normal utf-8 string
-    CMD_run_rofi = "echo ' ' | rofi -dmenu -p 'Translate'"
-    input_term = sp.run(CMD_run_rofi, shell=True, stdout=sp.PIPE).stdout[:-1].decode('utf-8')
-    #input_term = "gefiel"
+    if sys.argv[1]:
+        input_term = sys.argv[1]
+    else:
+        # Run the command then remove the ending newline, and decode the bytestring as a normal utf-8 string
+        CMD_run_rofi = "echo ' ' | rofi -dmenu -p 'Translate'"
+        input_term = sp.run(CMD_run_rofi, shell=True, stdout=sp.PIPE).stdout[:-1].decode('utf-8')
     while input_term != "":
         # update query history
         query_history += input_term + "->"
