@@ -129,7 +129,7 @@ if __name__ == "__main__":
 
     query_history = ""
     saved_queries = {}
-    if sys.argv[1]:
+    if sys.argv.__len__() > 1:
         input_term = sys.argv[1]
     else:
         # Run the command then remove the ending newline, and decode the bytestring as a normal utf-8 string
