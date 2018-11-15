@@ -288,5 +288,4 @@ if __name__ == "__main__":
         cmd = "echo {} | xsel -b -i".format(selected_text[0])
 
         sp.run(cmd, shell=True, stdout=sp.PIPE)
-        print("fertig")
         input_term = None
