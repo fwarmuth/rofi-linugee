@@ -4,9 +4,6 @@ import subprocess as sp
 import locale
 import requests
 
-import pickle
-import pyperclip
-
 class Translater(object):
 
     def __init__(self, key_translate=None, key_dictionary=None, text=None,
@@ -188,7 +185,7 @@ class RofiOutput():
         s = ""
         for entry in self.entries:
             # add translation and tye to string
-            s += entry[1]["text"] + ", " + entry[1]["pos"]
+            s += "<b>" + entry[1]["text"] + "</b>, <i>" + entry[1]["pos"] + "</i>"
 
             # add synonyms
             try:
