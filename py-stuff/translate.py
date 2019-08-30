@@ -106,8 +106,8 @@ def translate(input_word):
     # get paramters
     get_parameter = {"source": "auto", "query": input_word}
 
-    # create request
-    r = requests.get('https://www.linguee.com/english-german/search', params=get_parameter)
+    # create request, without ssl verification
+    r = requests.get('https://www.linguee.com/english-german/search', verify=False,params=get_parameter)
     # pickle.dump(r.content, open("r.content.p", "wb"))
     #r_content = pickle.load(open("r.content.p", "rb"))
     r_content = r.content
