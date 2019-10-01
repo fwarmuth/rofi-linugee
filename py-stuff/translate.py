@@ -78,7 +78,8 @@ def extract_lemma_featured(input_html, input_word):
             except:
                 tag_lemma_context += str(element)
 
-    # find and save word type, noun, verb, ajective..
+    # find and save word type, noun, verb, adjective..
+    original_word_type = ""
     for element in input_html.find_all('span', {'class': 'tag_wordtype'}):
         original_word_type = element.contents[0]
 
@@ -107,7 +108,7 @@ def translate(input_word):
     get_parameter = {"source": "auto", "query": input_word}
 
     # create request, without ssl verification
-    r = requests.get('https://www.linguee.com/english-german/search', verify=False,params=get_parameter)
+    r = requests.get('https://www.linguee.com/english-german/search', verify=False, params=get_parameter)
     # pickle.dump(r.content, open("r.content.p", "wb"))
     #r_content = pickle.load(open("r.content.p", "rb"))
     r_content = r.content
@@ -125,11 +126,11 @@ def translate(input_word):
     return translations
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" :
 
     query_history = ""
     saved_queries = {}
-    if sys.argv.__len__() > 1:
+    if sys.argv.__len__() == 2:
         input_term = sys.argv[1]
     else:
         # Run the command then remove the ending newline, and decode the bytestring as a normal utf-8 string
