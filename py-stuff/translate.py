@@ -139,6 +139,7 @@ if __name__ == "__main__" :
         if input_term == " ":
             # no input found
             exit(0)
+
     while input_term != "":
         # update query history
         query_history += input_term + "->"
@@ -146,7 +147,7 @@ if __name__ == "__main__" :
         if saved_queries.__contains__(input_term):
             trans_struct = saved_queries[input_term]
         else:
-            # translate new input_term
+            # translate input_term
             trans_struct = translate(input_term)
             saved_queries[input_term] = trans_struct
 
